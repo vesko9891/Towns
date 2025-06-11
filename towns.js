@@ -1,10 +1,14 @@
 $(document).ready(function() {
-	$('#btnDelete').click(deleteTown)
+	$('#btn	Add').click(AddTown)
+	$('#btnDelete').click(deleteTown);
 });
 
-function deleteTown() {
-	let townName = $('#townName').val();
-	$('#townName').val('');
+function addTown() {
+	let townName = $('#townNameForAdd').val();
+	$('#townNameForAdd').val('');
+	$('#towns').append($('<option>').text(townName));
+	$('#result').text(townName + " added.");
+}
 	let removed = false;
 	for (let option of $('#towns option')) {
 		if (option.textContent == townName) {
